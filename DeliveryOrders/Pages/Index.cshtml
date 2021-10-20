@@ -1,0 +1,49 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Заказы";
+    
+}
+
+<section>
+    <div>
+        <h1>Создание заказа</h1>
+        <div>
+            <form action="" method="POST" style="padding: 15px;">
+                <div>
+                    <label>Город отправителя</label>
+                    <input type="text" placeholder="Введите город отправителя" name="senderCity" required="">
+                </div>
+                <div>
+                    <label>Адрес отправителя</label>
+                    <input type="text" placeholder="Введите адрес отправителя" name="senderAdress" required="">
+                </div>
+                <div>
+                    <label>Город получателя</label>
+                    <input type="text" placeholder="Введите город получателя" name="recipientCity" required="">
+                </div>
+                <div>
+                    <label>Адрес получателя</label>
+                    <input type="text" placeholder="Введите адрес получателя" name="recipientAdress" required="">
+                </div>
+                <div>
+                    <label>Вес груза</label>
+                    <input type="number" placeholder="Введите вес в кг" name="weight" required="">
+                </div>
+                <div>
+                    <label>Дата забора груза</label>
+                    <input type="date" placeholder="Введите дату" name="date" required=""  min="2000-01-01" max="3000-12-31">>
+                </div>
+                <div>
+                    <input type="submit" value="Добавить запись"; return false;>
+                </div>
+            </form>
+            @{ if ((int)ViewData["orderNumber"] != 0)
+                {
+                    <h1>Заказ сформирован</h1>;
+                    <h1>Номер заказа:  @ViewData["orderNumber"]</h1>
+                }
+             }
+        </div>
+    </div>
+</section>

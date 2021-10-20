@@ -1,0 +1,64 @@
+﻿@page
+@model OrdersModel
+@{
+    ViewData["Title"] = "Заказы";
+}
+<h1>@ViewData["Title"]</h1>
+
+<table id="tblHelpRow">
+    <thead>
+        <tr class="title">
+            <th>
+                Номер заказа
+            </th>
+            <th>
+                Город отправителя
+            </th>
+            <th>
+                Адрес отправителя
+            </th>
+            <th>
+                Город получателя
+            </th>
+            <th>
+                Адрес получателя
+            </th>
+            <th>
+                Вес груза (Кг)
+            </th>
+            <th>
+                Дата приемки
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+       @{ foreach (var data in (List<OrderTable>)ViewData["listOfOrders"])
+            {
+               <tr>
+                   <th>
+                       @data.Id;
+                   </th>
+                   <td>
+                       @data.SenderCity;
+                   </td>
+                   <td>
+                       @data.SenderAdress;
+                   </td>
+                   <td>
+                       @data.RecieverCity;
+                   </td>
+                   <td>
+                       @data.RecieverAdress;
+                   </td>
+                   <td>
+                       @data.Weight;
+                   </td>
+                   <td>
+                       @data.Date.ToShortDateString();
+                   </td>
+               </tr>
+            }
+
+       }
+    </tbody>
+</table>
